@@ -1,17 +1,18 @@
 // quick project to minifiy js on the fly. 
 
+var destination = 'dist/';
+
 var gulp = require('gulp');
 var uglify = require('gulp-uglify');
-
 var watch = require('gulp-watch');
 var sass = require('gulp-sass');
 
-gulp.task('sass', function buildSass() {
+gulp.task('styles', function buildSass() {
 	
-	return watch('scss/*.scss', function watchSass() {
-		gulp.src('scss/*.scss')
+	return watch('styles/*.*ss', function watchSass() {
+		gulp.src('styles/*.*ss')
 			.pipe(sass().on('error', sass.logError))
-			.pipe(gulp.dest('dist/'));
+			.pipe(gulp.dest(destination));
 	});
 	
 });
